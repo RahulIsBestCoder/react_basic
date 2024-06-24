@@ -35,3 +35,15 @@ export const handleChanges=(name,value,state)=>{
         ...element, [name]: value
     }))
 }
+
+export const isValid=(key,value,state)=>{
+    state(element => ({...element, ["error1"]:"" }))
+    state(element => ({...element, ["error"]:"" }))
+    console.log("hitting");
+    if( key==="Phone" && value.length!=10){
+        state(element => ({...element, ["error"]:"Invalid Phone" }))
+    }
+    if(key==="Email" && !value.includes("@")){
+        state(element => ({...element, ["error1"]:"Invalid Email" }))
+    }
+}

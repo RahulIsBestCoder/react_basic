@@ -1,35 +1,30 @@
-import React from "react"
-const arr=[]
+import React from "react";
 
-const Table =()=>{
-    const env = import.meta.env.VITE_API_URL
-    return (
-        
-        <div className="main_table_div">
-            <div className="table_box">
-                <table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                xxxx
-                            </td>
-                            <td>
-                                xxxx
-                            </td>
-                            <td>
-                                xxxx
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    )
-}
+const Table = ({ headItems, bodyItems }) => {
+  return (
+    <div className="main_table_div">
+      <div className="table_box">
+        <table>
+          <thead>
+            <tr>
+              {headItems.map((item, index) => (
+                <th key={index}>{item}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {bodyItems.map((item, index) => (
+              <tr key={index}>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.phone}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-export default Table
+export default Table;
